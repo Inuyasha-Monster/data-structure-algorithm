@@ -60,7 +60,9 @@ public class Test {
         int[][] sourceArr = new int[row][col];
 
         // 根据稀疏数组还原二维数组 循环稀疏数组后续的行数据赋予原始数组
-        for (int i = 1; i < sum + 1; i++) {
+        System.out.println(spareArr.length); // 返回稀疏数组的行数
+        System.out.println(sum); // 返回稀疏数组有效数字的个数 = spareArr.length-1
+        for (int i = 1; i < spareArr.length; i++) {
             int sourceRow = spareArr[i][0];
             int sourceCol = spareArr[i][1];
             int sourceData = spareArr[i][2];
@@ -88,16 +90,16 @@ public class Test {
         spareArr[0][1] = 11;
         spareArr[0][2] = sum;
 
-        int row = 0;
+        int count = 0; // 用于记录非0的数字的个数
         // 初始化稀疏数组后续的行数据
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
                 int data = sourceArray[i][j];
                 if (data != 0) {
-                    row++;
-                    spareArr[row][0] = i; // 记录数据的原始行
-                    spareArr[row][1] = j; // 记录数据的原始列
-                    spareArr[row][2] = data; // 记录数据本身
+                    count++;
+                    spareArr[count][0] = i; // 记录数据的原始行
+                    spareArr[count][1] = j; // 记录数据的原始列
+                    spareArr[count][2] = data; // 记录数据本身
                 }
             }
         }
