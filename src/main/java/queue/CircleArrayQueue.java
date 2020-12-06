@@ -87,10 +87,12 @@ public class CircleArrayQueue {
             System.out.println("队列满了...");
             return;
         }
+        System.out.println("入列之前 tail:" + tail);
         // 将元素加入队列尾部
         arr[tail] = value;
         // 计算下一个元素存放位置
         this.tail = (tail + 1) % maxSize;
+        System.out.println("入列之后 tail:" + tail);
     }
 
     public int dequeue() {
@@ -99,20 +101,27 @@ public class CircleArrayQueue {
             System.out.println("队列空了...");
             throw new RuntimeException("队列空了");
         }
-        int i = arr[front];
+        System.out.println("出列之前 front:" + front);
+        int value = arr[front];
         // 计算下一个出队元素的位置
-        this.front = (this.front++) % maxSize;
-        return i;
+        this.front = (this.front + 1) % maxSize;
+        System.out.println("出列之前 front:" + front);
+        return value;
     }
 
     public void show() {
         if (isEmpty()) {
-            System.out.println("队列满了...");
+            System.out.println("队列空了...");
             return;
         }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.printf("arr[%d]=%d\r\n", i, arr[i]);
+        for (int i = front; i < front + size(); i++) {
+            System.out.printf("arr[%d]=%d\r\n", i % maxSize, arr[i % maxSize]);
         }
+        System.out.println("当前tail:" + tail + ",front:" + front);
+    }
+
+    private int size() {
+        return (tail + maxSize - front) % maxSize;
     }
 
     // 仅仅获取头部元素不移动头部指针
