@@ -7,7 +7,7 @@ package sparseArray;
  * 2.读取存储文件还原稀疏数组,然后恢复原始二维数组
  * 总结:综上完成初步的数据结构和算法的入门训练,完成二维数组的压缩和解压的功能
  */
-public class Test {
+public class SpareArrayTest {
     public static void main(String[] args) {
         // 构建原始的二维数组
         int[][] sourceArr = new int[11][11];
