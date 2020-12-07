@@ -6,7 +6,7 @@ package queue;
  */
 
 /**
- * 一次性队列通过数组实现
+ * 一次性队列通过数组实现(注意存在'假'满的情况)
  */
 public class ArrayQueue {
     private int maxSize; // 队列的最大长度

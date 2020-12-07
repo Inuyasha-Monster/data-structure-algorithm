@@ -6,6 +6,8 @@ import java.util.Scanner;
  * @author djl
  * @create 2020/12/6 18:29
  * 通过数组模拟环形队列 采用 额外空出一个元素空间 标记是队列满了还是队列为空的区分
+ * 原理:通过空闲一个额外的元素空间标识区分队列是空了还是满了,主要是通过模运算达到复用数据的目的
+ * 缺陷:浪费了一个额外的数组空间
  */
 public class CircleArrayQueue {
 
@@ -90,7 +92,7 @@ public class CircleArrayQueue {
         System.out.println("入列之前 tail:" + tail);
         // 将元素加入队列尾部
         arr[tail] = value;
-        // 计算下一个元素存放位置
+        // 计算下一个元素存放位置也就是新的队列尾部位置
         this.tail = (tail + 1) % maxSize;
         System.out.println("入列之后 tail:" + tail);
     }
@@ -103,9 +105,9 @@ public class CircleArrayQueue {
         }
         System.out.println("出列之前 front:" + front);
         int value = arr[front];
-        // 计算下一个出队元素的位置
+        // 计算下一个出队元素的位置也就是队列首部
         this.front = (this.front + 1) % maxSize;
-        System.out.println("出列之前 front:" + front);
+        System.out.println("出列之后 front:" + front);
         return value;
     }
 
