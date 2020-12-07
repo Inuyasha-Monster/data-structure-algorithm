@@ -80,6 +80,30 @@ public class SingleLinkedList {
             System.out.println("no:" + no + " 没找数据");
         }
 
+        System.out.println("测试获取链表有效数据个数");
+
+        final int length = SingleLinkedListPlus.getLength(singleLinkedList);
+        System.out.println("length = " + length);
+
+//        HeroNode{idx=0, no='2', name='xx', nickName='xx1'}
+//        HeroNode{idx=0, no='4', name='sdasda', nickName='asdasdadsadsd'}
+//        HeroNode{idx=1, no='null', name='fuck', nickName='null'}
+//        HeroNode{idx=2, no='djl', name='djl', nickName='djl'}
+
+        System.out.println("测试:查找单链表中的倒数第 k 个结点 ");
+
+        final HeroNode result = SingleLinkedListPlus.get(4, singleLinkedList);
+        System.out.println("result = " + result);
+
+
+        System.out.println("单链表的反转【腾讯面试题，有点难度】");
+        SingleLinkedListPlus.reverse(singleLinkedList);
+        singleLinkedList.show();
+
+        System.out.println("单链表的反转通过栈的方式");
+        SingleLinkedListPlus.reverseByStack(singleLinkedList.getHeadNode());
+        singleLinkedList.show();
+
     }
 
     // 定义链表头节点
