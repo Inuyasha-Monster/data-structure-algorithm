@@ -70,6 +70,16 @@ public class SingleLinkedList {
         temp.setName("fuck");
         singleLinkedList.insert(temp);
         singleLinkedList.show();
+
+        System.out.println("测试根据no查询name");
+        String no = "4";
+        final String name = singleLinkedList.getName(no);
+        if (name != null) {
+            System.out.println("name = " + name);
+        } else {
+            System.out.println("no:" + no + " 没找数据");
+        }
+
     }
 
     // 定义链表头节点
@@ -77,6 +87,20 @@ public class SingleLinkedList {
 
     public HeroNode getHeadNode() {
         return headNode;
+    }
+
+    public String getName(String no) {
+        if (no == null && no.trim().isEmpty()) {
+            return null;
+        }
+        HeroNode temp = this.headNode.getNext();
+        while (temp != null) {
+            if (temp.getNo() != null && temp.getNo().equals(no)) {
+                return temp.getName();
+            }
+            temp = temp.getNext();
+        }
+        return null;
     }
 
     // 打印链表
