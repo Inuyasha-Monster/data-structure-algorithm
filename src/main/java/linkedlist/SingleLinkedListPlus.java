@@ -1,5 +1,6 @@
 package linkedlist;
 
+import java.util.Objects;
 import java.util.Stack;
 
 /**
@@ -56,16 +57,29 @@ public class SingleLinkedListPlus {
         if (first2 == null) {
             return head1;
         }
+        HeroNode newHead = new HeroNode();
+        HeroNode cur = head1.getNext();
+        newHead.setNext(cur.clone());
+        HeroNode newNext = newHead.getNext();
+        // 将head1的元素遍历加入newHead当中
+        while (cur.getNext() != null) {
+            newNext.setNext(cur.getNext().clone());
+            newNext = newNext.getNext();
+            cur = cur.getNext();
+        }
+
         // 开始合并操作,思考:采取以某一个非空链表为准,遍历另外一个链表的元素执行按照为准链表顺序插入,形成有序队列
         HeroNode temp2 = head2.getNext();
         while (temp2 != null) {
-            final HeroNode next = temp2.getNext();
+//            HeroNode next = temp2.getNext();
+            // 清空原始链条后续节点
+//            temp2.setNext(null);
             // 依次将head2链表的数据顺序插入head1当中
-            temp2.setNext(null);
-            insertOrderById(head1, temp2);
-            temp2 = next;
+            insertOrderById(newHead, temp2.clone());
+//            temp2.setNext(next);
+            temp2 = temp2.getNext();
         }
-        return head1;
+        return newHead;
     }
 
 

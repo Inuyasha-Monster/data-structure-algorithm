@@ -132,11 +132,17 @@ public class SingleLinkedList {
         System.out.println();
         singleLinkedList2.show();
 
-        System.out.println("反转...");
-        SingleLinkedListPlus.MergeLinkedList(singleLinkedList1.getHeadNode(), singleLinkedList2.getHeadNode());
+        System.out.println("合并...");
+        HeroNode heroNode5 = SingleLinkedListPlus.MergeLinkedList(singleLinkedList1.getHeadNode(), singleLinkedList2.getHeadNode());
         singleLinkedList1.show();
         System.out.println();
         singleLinkedList2.show();
+
+        System.out.println("打印合并结果");
+        while (heroNode5.getNext() != null) {
+            System.out.println(heroNode5.getNext());
+            heroNode5 = heroNode5.getNext();
+        }
     }
 
     // 定义链表头节点

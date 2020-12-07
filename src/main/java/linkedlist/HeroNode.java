@@ -61,4 +61,13 @@ public class HeroNode {
                 ", nickName='" + nickName + '\'' +
                 '}';
     }
+
+    public HeroNode clone() {
+        HeroNode newNode = new HeroNode();
+        newNode.setIdx(this.getIdx());
+        newNode.setName(this.getName());
+        newNode.setNickName(this.getNickName());
+        newNode.setNo(this.getNo());
+        return newNode;
+    }
 }
