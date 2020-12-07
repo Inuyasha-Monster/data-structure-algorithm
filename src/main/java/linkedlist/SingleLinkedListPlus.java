@@ -7,6 +7,68 @@ import java.util.Stack;
  * @create 2020/12/7 14:59
  */
 public class SingleLinkedListPlus {
+
+
+    /**
+     * 按顺序插入原始链表要求原始链表不能为空
+     *
+     * @param headNode
+     * @param node
+     */
+    private static void insertOrderById(HeroNode headNode, HeroNode node) {
+        HeroNode temp = headNode.getNext();
+        if (temp == null) {
+            return;
+        }
+        HeroNode cur = headNode;
+        while (cur.getNext() != null) {
+            final HeroNode next = cur.getNext();
+            if (next.getIdx() > node.getIdx()) {
+                // 执行插入操作
+                node.setNext(next);
+                cur.setNext(node);
+                break;
+            }
+            cur = cur.getNext();
+        }
+        // 如果cur.getNext()==null 表示已经到达链表末尾还没有找打插入位置直接放置在尾部
+        cur.setNext(node);
+    }
+
+    /**
+     * 通过id合并两个有序的链表为一个新的有序的链表
+     *
+     * @param head1 有序链表
+     * @param head2 有序链表
+     * @return 一个新的有序链表
+     */
+    public static HeroNode MergeLinkedList(HeroNode head1, HeroNode head2) {
+        // 前置基本判断
+        final HeroNode first1 = head1.getNext();
+        final HeroNode first2 = head2.getNext();
+        if (first1 == null && first2 == null) {
+            System.out.println("2个链表为空");
+            return null;
+        }
+        if (first1 == null) {
+            return head2;
+        }
+        if (first2 == null) {
+            return head1;
+        }
+        // 开始合并操作,思考:采取以某一个非空链表为准,遍历另外一个链表的元素执行按照为准链表顺序插入,形成有序队列
+        HeroNode temp2 = head2.getNext();
+        while (temp2 != null) {
+            final HeroNode next = temp2.getNext();
+            // 依次将head2链表的数据顺序插入head1当中
+            temp2.setNext(null);
+            insertOrderById(head1, temp2);
+            temp2 = next;
+        }
+        return head1;
+    }
+
+
     /**
      * 获取到单链表的节点的个数(如果是带头结点的链表，需求不统计头节点)
      *

@@ -104,6 +104,39 @@ public class SingleLinkedList {
         SingleLinkedListPlus.reverseByStack(singleLinkedList.getHeadNode());
         singleLinkedList.show();
 
+
+        System.out.println("测试2个有序链表合并为一个有序链表");
+        SingleLinkedList singleLinkedList1 = new SingleLinkedList();
+        final HeroNode node11 = new HeroNode();
+        node11.setIdx(1);
+        final HeroNode node12 = new HeroNode();
+        node12.setIdx(3);
+        final HeroNode node13 = new HeroNode();
+        node13.setIdx(5);
+        singleLinkedList1.add(node11);
+        singleLinkedList1.add(node12);
+        singleLinkedList1.add(node13);
+
+        SingleLinkedList singleLinkedList2 = new SingleLinkedList();
+        final HeroNode node21 = new HeroNode();
+        node21.setIdx(2);
+        final HeroNode node22 = new HeroNode();
+        node22.setIdx(4);
+        final HeroNode node23 = new HeroNode();
+        node23.setIdx(6);
+        singleLinkedList2.add(node21);
+        singleLinkedList2.add(node22);
+        singleLinkedList2.add(node23);
+
+        singleLinkedList1.show();
+        System.out.println();
+        singleLinkedList2.show();
+
+        System.out.println("反转...");
+        SingleLinkedListPlus.MergeLinkedList(singleLinkedList1.getHeadNode(), singleLinkedList2.getHeadNode());
+        singleLinkedList1.show();
+        System.out.println();
+        singleLinkedList2.show();
     }
 
     // 定义链表头节点
