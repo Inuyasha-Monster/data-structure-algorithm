@@ -55,6 +55,12 @@ public class DoubleLinkedList {
 
     private Node head = new Node();
 
+    /**
+     * 按照id的正序插入到原始双向链表当中
+     * 否正直接放置在链表尾部
+     *
+     * @param node
+     */
     public void addOrderById(Node node) {
         Node cur = head;
         while (cur.next != null) {
