@@ -21,8 +21,8 @@ public class ShellSort {
     public static void main(String[] args) {
         //int[] arr = { 8, 9, 1, 7, 2, 3, 5, 4, 6, 0 };
 // 创建要给 80000 个的随机的数组
-        int[] arr = new int[80000];
-        for (int i = 0; i < 80000; i++) {
+        int[] arr = new int[8000000];
+        for (int i = 0; i < 8000000; i++) {
             arr[i] = (int) (Math.random() * 8000000); // 生成一个[0, 8000000) 数
         }
 //        System.out.println("排序前");
