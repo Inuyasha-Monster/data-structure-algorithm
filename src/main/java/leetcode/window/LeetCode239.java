@@ -1,4 +1,4 @@
-package window;
+package leetcode.window;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
