@@ -1,10 +1,6 @@
-package thrad;
+package thread;
 
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author djl
