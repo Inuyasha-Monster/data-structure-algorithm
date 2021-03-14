@@ -62,5 +62,7 @@ public class Test {
         Float f11 = 0.1f; // Float大写的是什么=>对这个float基础类型的[包装类]
         Float f22 = 0.1f;
         System.out.println(f11 == f22); // 内存地址 @530
+
+        // integer等对象的 equals 方法重写object对象的 equals 方法达到对比=> 数值的真实值
     }
 }
